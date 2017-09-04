@@ -1,4 +1,4 @@
-require_relative 'circuit'
+require_relative '../circuit'
 require 'test/unit'
 
 class TestCircuit < Test::Unit::TestCase

@@ -8,7 +8,9 @@ class Circuit
 
   end
 
-  # Return the power given the current and voltage
+  # Return the power(watts) given the current and voltage
+  # current - measured in Amps
+  # voltage - measured in volts
   def calc_power(current:, voltage:)
 
     if current == nil or voltage == nil

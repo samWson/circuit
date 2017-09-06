@@ -1,6 +1,6 @@
 class Circuit
 
-  attr_reader :power
+  attr_reader :power, :current
 
   def initialize(power: nil, current: nil, voltage: nil)
 

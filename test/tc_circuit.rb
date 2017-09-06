@@ -5,13 +5,20 @@ class TestCircuit < Test::Unit::TestCase
 
   def setup
     @power_not_known = Circuit.new current: 5.0, voltage: 5.0
+    @current_not_known = Circuit.new power: 30, voltage: 5.0
+    @delta = 0.1
   end
 
   def test_power
     expected = 25.0
     actual = @power_not_known.power
-    delta = 0.1
-    assert_in_delta(expected, actual, delta)
+    assert_in_delta(expected, actual, @delta)
+  end
+
+  def test_current
+    expected = 6.0
+    actual = @current_not_known.current
+    assert_in_delta(expected, actual, @delta)
   end
 
   def test_incomplete_args

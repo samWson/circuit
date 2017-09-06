@@ -14,7 +14,7 @@ class Circuit
   def calc_power(current:, voltage:)
 
     if current == nil or voltage == nil
-      raise ArgumentError
+      raise ArgumentError, "One or more arguments are nil. Both current and voltage must have a value."
     end
 
     current * voltage

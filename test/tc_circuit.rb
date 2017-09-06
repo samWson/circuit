@@ -14,4 +14,8 @@ class TestCircuit < Test::Unit::TestCase
     assert_in_delta(expected, actual, delta)
   end
 
+  def test_incomplete_args
+    assert_raise(ArgumentError) { Circuit.new voltage: 5.0 }
+  end
+
 end

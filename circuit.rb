@@ -1,11 +1,13 @@
 class Circuit
 
-  attr_reader :power, :current
+  attr_reader :power, :current, :voltage
 
   def initialize(power: nil, current: nil, voltage: nil)
 
     @power = (power == nil) ? calc_power(current: current, voltage: voltage) : power
     @current = (current == nil) ? calc_current(power: power, voltage: voltage) : current
+    @voltage = (voltage == nil) ? calc_voltage(power: power, current: current) : voltage
+    
   end
 
   private
@@ -26,6 +28,14 @@ class Circuit
     power / voltage
   end
 
+  # Return the voltage(volts) given the power and current
+  # power - measured in watts
+  # current - measured in Amps
+  def calc_voltage(power:, current:)
+    check_nil_args power, current
+    power / current
+  end
+  
   # Raise an ArgumentError if there are nil arguments
   def check_nil_args(arg1, arg2)
     

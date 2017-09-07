@@ -31,7 +31,7 @@ class TestCircuit < Test::Unit::TestCase
   def test_incomplete_args
     assert_raise(ArgumentError) { Circuit.new voltage: 5.0 }
     assert_raise(ArgumentError) { Circuit.new current: 4.0 }
-
+    assert_raise(ArgumentError) { Circuit.new power: 10.0 }
   end
 
 end

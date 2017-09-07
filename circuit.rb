@@ -8,14 +8,13 @@ class Circuit
     @current = (current == nil) ? calc_current(power: power, voltage: voltage) : current
   end
 
+  private
+
   # Return the power(watts) given the current and voltage
   # current - measured in Amps
   # voltage - measured in volts
   def calc_power(current:, voltage:)
-
-    if current == nil or voltage == nil
-      raise ArgumentError, "One or more arguments are nil. Both current and voltage must have a value."    end
-
+    check_nil_args current, voltage
     current * voltage    
   end
 
@@ -23,11 +22,16 @@ class Circuit
   # power - measured in watts
   # voltage - measured in volts
   def calc_current(power:, voltage:)
-
-    if power == nil or voltage == nil
-      raise ArgumentError, "One or more arguments are nil. Both power and voltage must have a value."    end
-
+    check_nil_args power, voltage
     power / voltage
   end
+
+  # Raise an ArgumentError if there are nil arguments
+  def check_nil_args(arg1, arg2)
     
+    if arg1 == nil or arg2 == nil
+      raise ArgumentError, "One or more arguments are nil. At lease two arguments out of power, current, and voltage must have a value."
+    end
+  end
+
 end

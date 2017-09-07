@@ -23,7 +23,7 @@ class TestCircuit < Test::Unit::TestCase
   end
 
   def test_voltage
-    expected = 10.0
+    expected = 5.0
     actual = @voltage_not_known.voltage
     assert_in_delta expected, actual, @delta
   end

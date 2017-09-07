@@ -6,7 +6,7 @@ class TestCircuit < Test::Unit::TestCase
   def setup
     @power_not_known = Circuit.new current: 5.0, voltage: 5.0
     @current_not_known = Circuit.new power: 30, voltage: 5.0
-    @delta = 0.1
+    @delta = 0.01
   end
 
   def test_power
